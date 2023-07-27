@@ -1,0 +1,14 @@
+{
+  "name": "VAP-FSUIPC",
+  "version": "0.1.0",
+  "description": "Acars in JS+Electron for a custom virtual airline",
+  "main": "src/main.js",
+  "author": "Fernando Menezes Rodrigues",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^25.4.0"
+  },
+  "scripts": {
+    "start": "electron ."
+  }
+}
