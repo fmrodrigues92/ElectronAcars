@@ -10,5 +10,8 @@
   },
   "scripts": {
     "start": "electron ."
+  },
+  "dependencies": {
+    "fsuipc": "^0.6.0"
   }
 }
