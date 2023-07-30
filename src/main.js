@@ -1,6 +1,7 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
 const fsuipc = require('fsuipc');
+const io = require('socket.io-client');
 
 const obj = new fsuipc.FSUIPC();
 let win; 
@@ -20,6 +21,28 @@ const createWindow = () => {
 
 app.whenReady().then(() => {
     createWindow();
+
+    const socket = io('http://127.0.0.1:3333');
+
+    // Manipulador de evento para mensagem recebida
+    socket.on('message', (data) => {
+        showMessage(`Mensagem recebida: ${data}`);
+    });
+
+    socket.on('connected', (data) => {
+      showMessage(`connected msg received: ${data}`);
+    });
+
+    // Função auxiliar para exibir mensagens no navegador
+    function showMessage(message) {
+        console.log(message);
+    }
+
+    // Enviar mensagem para o servidor quando o botão for clicado
+    // function sendMessage() {
+    //     let message = document.getElementById('textarea').value;
+    //     socket.emit('message', message);
+    // }
 })
 
 const startFSUIPC = () => {
@@ -53,7 +76,7 @@ const startFSUIPC = () => {
 
 }
 
-startFSUIPC();
+// startFSUIPC();
 
 
 app.on('window-all-closed', () => {

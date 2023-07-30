@@ -12,6 +12,7 @@
     "start": "electron ."
   },
   "dependencies": {
-    "fsuipc": "^0.6.0"
+    "fsuipc": "^0.6.0",
+    "socket.io-client": "^4.7.2"
   }
 }
