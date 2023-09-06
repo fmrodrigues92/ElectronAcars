@@ -6,7 +6,7 @@
   "author": "Fernando Menezes Rodrigues",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^25.4.0"
+    "electron": "^25.5.0"
   },
   "scripts": {
     "start": "electron ."
